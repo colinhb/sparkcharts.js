@@ -106,7 +106,7 @@
         points.forEach((point, i) => {
             const clampedPoint = Math.max(0, point);
             const h = scaleMax > 0 ? (clampedPoint / scaleMax) * height : 0;
-            const barHeight = h === 0 ? 1 : h;
+            const barHeight = h === 0 ? 1 : Math.max(1, h); // 0 -> 1px (zero case), 0<h<=1 -> 1px (legibility case), h>1 -> h (normal case)
             const x = i * (barWidth + gap);
             const y = height - barHeight;
 
