@@ -23,4 +23,4 @@ Lightweight bar chart sparklines using inline SVG. All sizing and colors are aut
 
 ## Demo
 
-See [index.html](index.html) for examples.
+See [index.html](https://colinhb.github.io/sparkcharts.js/) for examples.
