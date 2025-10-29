@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SparkCharts.js Demo</title>
+	<link rel="stylesheet" href="https://csstools.github.io/normalize.css/11.0.0/normalize.css">
+	<style>
+		body {
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			font-family: system-ui, sans-serif;
+		}
+
+		h2 {
+			margin-top: 2em;
+		}
+
+		section {
+			margin: 2em 0;
+		}
+
+		.demo {
+			padding: 1em;
+			background: #f5f5f5;
+			border-radius: 4px;
+			margin: 1em 0;
+		}
+
+		code {
+			background: #e8e8e8;
+			padding: 0.125em 0.375em;
+			border-radius: 3px;
+			font-size: 0.9em;
+		}
+
+		.large-font {
+			font-size: 1.5em;
+		}
+
+		.small-font {
+			font-size: 0.75em;
+		}
+
+		.green {
+			color: green;
+		}
+
+		.red {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>SparkCharts.js Demo</h1>
+	<p>Lightweight bar chart sparkcharts using inline SVG. All sizing and colors are automatic based on typography.</p>
+
+	<h2>Quick Start</h2>
+	<section class="example">
+		<ol>
+			<li>
+				Include the script:
+				<code>&lt;script src="sparkcharts.js"&gt;&lt;/script&gt;</code>
+			</li>
+			<li>
+				Add the attribute to any element with data:
+				<code>&lt;span data-sparkchart="true"&gt;10, 20, 30&lt;/span&gt;</code>
+			</li>
+			<li>
+				Done! The chart renders automatically:
+				<p><span data-sparkchart="true">10, 20, 30</span></p>
+			</li>
+		</ol>
+	</section>
+
+	<h2>Typography-Responsive Sizing</h2>
+	<section class="example">
+		<!-- prime numbers -->
+		<p>Charts automatically scale with the font-size of their container:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;2, 3, 5, 7, 11, 13, 17&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p></p><span data-sparkchart="true">2, 3, 5, 7, 11, 13, 17</span></p>
+			</div>
+		</div>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span class="large-font" data-sparkchart="true"&gt;2, 3, 5, 7, 11, 13, 17&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span class="large-font" data-sparkchart="true">2, 3, 5, 7, 11, 13, 17</span></p>
+			</div>
+		</div>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span class="small-font" data-sparkchart="true"&gt;2, 3, 5, 7, 11, 13, 17&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span class="small-font" data-sparkchart="true">2, 3, 5, 7, 11, 13, 17</span></p>
+			</div>
+		</div>
+	</section>
+
+	<h2>Color via CSS</h2>
+	<section class="example">
+		<!-- Collatz sequence -->
+		<p>Color is inherited from CSS <code>color</code> property:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;27, 82, 41, 124, 62, 31&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">27, 82, 41, 124, 62, 31</span></p>
+			</div>
+		</div>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span class="green" data-sparkchart="true"&gt;27, 82, 41, 124, 62, 31&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span class="green" data-sparkchart="true">27, 82, 41, 124, 62, 31</span></p>
+			</div>
+		</div>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span class="red" data-sparkchart="true"&gt;27, 82, 41, 124, 62, 31&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span class="red" data-sparkchart="true">27, 82, 41, 124, 62, 31</span></p>
+			</div>
+		</div>
+	</section>
+
+	<h2>Inline Styles</h2>
+	<section class="example">
+		<!-- fib mod 10 -->
+		<p>Use inline styles for custom colors and sizes:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span style="color: blue;" data-sparkchart="true"&gt;2, 3, 5, 8, 3, 1, 4&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span style="color: blue;" data-sparkchart="true">2, 3, 5, 8, 3, 1, 4</span>
+				</p>
+			</div>
+		</div>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span style="font-size: 2em;" data-sparkchart="true"&gt;2, 3, 5, 8, 3, 1, 4&lt;/span&gt;</code>
+				</p>
+			</div>
+			<div class="output">
+				<p><span style="font-size: 2em;" data-sparkchart="true">2, 3, 5, 8, 3, 1, 4</span>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<h2>Fixed Maximum Scale</h2>
+	<section class="example">
+		<!-- sum of divisors -->
+		<p>Add a semicolon and max value after the data points:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;1, 3, 4, 7, 6, 12, 8, 15; 50&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">1, 3, 4, 7, 6, 12, 8, 15; 50</span></p>
+			</div>
+		</div>
+		<p>If max is less than the largest data point, it will be overridden (check console):</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;1, 3, 4, 7, 6, 12, 8, 15; 10&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">1, 3, 4, 7, 6, 12, 8, 15; 10</span></p>
+			</div>
+		</div>
+	</section>
+
+	<h2>Negative Values</h2>
+	<section class="example">
+		<!-- alternating factorial differences -->
+		<p>Negative values generate a console warning and are rendered as zero-height bars:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;1, -2, 4, -10, 24, -64, 176&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">1, -2, 4, -10, 24, -64, 176</span></p>
+			</div>
+		</div>
+		<p>Values -2, -10, and -64 appear as zero-height bars.</p>
+	</section>
+
+	<h2>Edge Cases</h2>
+	<section class="example">
+		<p>No data points results in an empty chart:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true"></span></p>
+			</div>
+		</div>
+		<p>Non-numeric and empty points dropped (only 12, 34, 56 rendered):</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;abc, , 12, def, 34, 56&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">abc, , 12, def, 34, 56</span></p>
+			</div>
+		</div>
+		<p>All zeros result in a flat chart:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;0, 0, 0, 0, 0&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">0, 0, 0, 0, 0</span></p>
+			</div>
+		</div>
+	</section>
+
+	<h2>Accessibility</h2>
+	<section class="example">
+		<!-- Euler's totient -->
+		<p>Charts automatically include ARIA labels for screen readers. Each bar has a title element for tooltips:</p>
+		<div class="demo">
+			<div class="input">
+				<p><code>&lt;span data-sparkchart="true"&gt;1, 1, 2, 2, 4, 2, 6&lt;/span&gt;</code></p>
+			</div>
+			<div class="output">
+				<p><span data-sparkchart="true">1, 1, 2, 2, 4, 2, 6</span></p>
+			</div>
+		</div>
+		<p>Right-click and "Inspect Element" to see <code>role="img"</code> and <code>aria-label</code> attributes on
+			the SVG.</p>
+	</section>
+
+	<h2>Configuration</h2>
+	<section class="example">
+		<p>Default configuration in <code>sparkcharts.js</code>:</p>
+		<ul style="font-size: 14px; line-height: 1.8;">
+			<li><code>BAR_WIDTH_EM: 1</code> - Each bar is 1em wide</li>
+			<li><code>HEIGHT_EM: 2</code> - Chart height is 2em</li>
+			<li><code>GAP_EM: 0.2</code> - 0.2em gap between bars</li>
+			<li><code>QUIET: false</code> - Set to true to suppress warnings</li>
+			<li><code>FALLBACK_FONT_SIZE: 16</code> - Default font size if unavailable</li>
+			<li><code>FALLBACK_COLOR: 'currentColor'</code> - Default color if unavailable</li>
+		</ul>
+		<p>Modify these values in the source to customize globally.</p>
+	</section>
+
+	<script src="sparkcharts.js?bar"></script>
+</body>
+
+</html>
