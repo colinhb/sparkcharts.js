@@ -14,9 +14,12 @@ Lightweight bar chart sparklines using inline SVG. All sizing and colors are aut
 <span data-sparkchart="true">10, 20, 30</span>
 ```
 
-**Note:** You may also use [jsDelivr]() for sourcing the library from GitHub, like so: <https://cdn.jsdelivr.net/gh/colinhb/sparkcharts.js@81df262/sparkcharts.js>.[^version]
+**Note:** You may also use [jsDelivr](https://www.jsdelivr.com) to source the library from GitHub[^version]: 
+```html
+<script src="https://cdn.jsdelivr.net/gh/colinhb/sparkcharts.js@81df262/sparkcharts.js"></script>
+```
 
-[^version]: Note I'm using a specific commit here. You should probably do the same.
+[^version]: I'm using a specific commit here. You should probably do the same.
 
 ## Features
 
@@ -31,4 +34,4 @@ See [index.html](https://colinhb.github.io/sparkcharts.js/) for examples.
 
 ## History
 
-This was developed to support "distribution reporting" of survery responses online. For example, see [this release](https://blog.athenainsights.org/nyc-mayoral-toplines-2025/).
+This library was developed to support easy "distribution reporting" of public opinion data online. For example, see [this release](https://blog.athenainsights.org/nyc-mayoral-toplines-2025/).
