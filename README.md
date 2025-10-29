@@ -14,6 +14,10 @@ Lightweight bar chart sparklines using inline SVG. All sizing and colors are aut
 <span data-sparkchart="true">10, 20, 30</span>
 ```
 
+**Note:** You may also use [jsDelivr]() for sourcing the library from GitHub, like so: <https://cdn.jsdelivr.net/gh/colinhb/sparkcharts.js@81df262/sparkcharts.js>.[^version]
+
+[^version]: Note I'm using a specific commit here. You should probably do the same.
+
 ## Features
 
 - **Typography-responsive**: Charts automatically scale with font-size
@@ -24,3 +28,7 @@ Lightweight bar chart sparklines using inline SVG. All sizing and colors are aut
 ## Demo
 
 See [index.html](https://colinhb.github.io/sparkcharts.js/) for examples.
+
+## History
+
+This was developed to support "distribution reporting" of survery responses online. For example, see [this release](https://blog.athenainsights.org/nyc-mayoral-toplines-2025/).
