@@ -36,6 +36,18 @@
 			font-size: 0.9em;
 		}
 
+		pre {
+			background: #e8e8e8;
+			padding: 1em;
+			border-radius: 4px;
+			overflow-x: auto;
+		}
+
+		pre code {
+			background: none;
+			padding: 0;
+		}
+
 		.large-font {
 			font-size: 1.5em;
 		}
@@ -56,7 +68,8 @@
 
 <body>
 	<h1>SparkCharts.js Demo</h1>
-	<p>Lightweight bar chart sparkcharts using inline SVG. All sizing and colors are automatic based on typography. On GitHub at <a href="https://github.com/colinhb/sparkcharts.js">colinhb/sparkcharts.js</a></p>
+	<p>Lightweight bar chart sparkcharts using inline SVG. All sizing and colors are automatic based on typography.</p>
+	<p>On GitHub at <a href="https://github.com/colinhb/sparkcharts.js">colinhb/sparkcharts.js</a></p>
 
 	<h2>Quick Start</h2>
 	<section class="example">
@@ -288,16 +301,15 @@
 
 	<h2>Configuration</h2>
 	<section class="example">
-		<p>Default configuration in <code>sparkcharts.js</code>:</p>
-		<ul style="font-size: 14px; line-height: 1.8;">
-			<li><code>BAR_WIDTH_EM: 1</code> - Each bar is 1em wide</li>
-			<li><code>HEIGHT_EM: 2</code> - Chart height is 2em</li>
-			<li><code>GAP_EM: 0.2</code> - 0.2em gap between bars</li>
-			<li><code>QUIET: false</code> - Set to true to suppress warnings</li>
-			<li><code>FALLBACK_FONT_SIZE: 16</code> - Default font size if unavailable</li>
-			<li><code>FALLBACK_COLOR: 'currentColor'</code> - Default color if unavailable</li>
-		</ul>
-		<p>Modify these values in the source to customize globally.</p>
+		<p>Configuration object in <code>sparkcharts.js</code>:</p>
+		<pre><code>const CONFIG = {
+    BAR_WIDTH_EM: 1,                // Each bar is 1em wide
+    HEIGHT_EM: 2,                   // Chart height is 2em
+    GAP_EM: 0.2,                    // 0.2em gap between bars
+    QUIET: false,                   // Set to true to suppress warnings
+    FALLBACK_FONT_SIZE: 16,         // Default font size if unavailable
+    FALLBACK_COLOR: 'currentColor', // Default color if unavailable (a CSS keyword)
+};</code></pre>
 	</section>
 
 	<script src="sparkcharts.js?bar"></script>
