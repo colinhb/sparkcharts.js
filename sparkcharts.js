@@ -3,7 +3,7 @@
 		BAR_WIDTH_EM: 1,
 		HEIGHT_EM: 2,
 		GAP_EM: 0.2,
-		MEAN_MARKER_HEIGHT_EM: 0.5,
+		MEAN_MARKER_HEIGHT_EM: 0.6,
 		QUIET: false,
 		FALLBACK_FONT_SIZE: 16,
 		FALLBACK_COLOR: 'currentColor',
@@ -154,15 +154,21 @@
 	function createTriangleMarker(x, y, width, height, pointDown, color) {
 		const path = document.createElementNS(NS, 'path');
 
+		// For equilateral triangle: width = (2 * height) / √3
+		const equilateralWidth = (2 * height) / Math.sqrt(3);
+		
 		const centerX = x + width / 2;
+		const triangleLeft = centerX - equilateralWidth / 2;
+		const triangleRight = centerX + equilateralWidth / 2;
+		
 		let d;
 
 		if (pointDown) {
 			// Triangle pointing down: apex at bottom-center
-			d = `M ${x} ${y} L ${x + width} ${y} L ${centerX} ${y + height} Z`;
+			d = `M ${triangleLeft} ${y} L ${triangleRight} ${y} L ${centerX} ${y + height} Z`;
 		} else {
 			// Triangle pointing up: apex at top-center
-			d = `M ${x} ${y + height} L ${x + width} ${y + height} L ${centerX} ${y} Z`;
+			d = `M ${triangleLeft} ${y + height} L ${triangleRight} ${y + height} L ${centerX} ${y} Z`;
 		}
 
 		path.setAttribute('d', d);
