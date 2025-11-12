@@ -173,7 +173,7 @@
 
 		path.setAttribute('d', d);
 		path.setAttribute('fill', color);
-		path.setAttribute('fill-opacity', 0.8);
+		// path.setAttribute('fill-opacity', 0.8);
 
 		return path;
 	}
@@ -220,7 +220,7 @@
 			line.setAttribute('y2', chartHeight - markerHeight);
 			line.setAttribute('stroke', color);
 			line.setAttribute('stroke-width', 1);
-			line.setAttribute('stroke-opacity', 0.6);
+			// line.setAttribute('stroke-opacity', 0.6);
 			line.setAttribute('stroke-dasharray', '2,2');
 			svg.appendChild(line);
 
@@ -241,7 +241,7 @@
 			line.setAttribute('y2', chartHeight);
 			line.setAttribute('stroke', color);
 			line.setAttribute('stroke-width', 1);
-			line.setAttribute('stroke-opacity', 0.6);
+			// line.setAttribute('stroke-opacity', 0.6);
 			line.setAttribute('stroke-dasharray', '2,2');
 			svg.appendChild(line);
 		}
