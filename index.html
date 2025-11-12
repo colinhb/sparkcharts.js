@@ -254,23 +254,26 @@
 
 	<h2>Mean Indicator</h2>
 	<section class="example">
-		<p>Add a third semicolon-separated section to indicate a (user-supplied) mean.</p>
+		<!-- Mamdani's Universal Childcare -->
+		<p>Add a third semicolon-separated argument to add an indicator for a (user-supplied) mean.</p>
+		<p>If you don't want to specify a second argument for fixed maximum scale,
+			you can safely use zero (<code>0</code>) for default scaling behavior.</p>
 		<p><strong>Explicit mode:</strong> Specify min, max, and mean as three comma-separated values:</p>
 		<div class="demo">
 			<div class="input">
-				<p><code>&lt;span data-sparkchart="true"&gt;1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 32; 0, 100, 73.1&lt;/span&gt;</code></p>
+				<p><code>&lt;span data-sparkchart="true"&gt;1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 0; 0, 100, 73.1&lt;/span&gt;</code></p>
 			</div>
 			<div class="output">
-				<p><span data-sparkchart="true">1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 32; 0, 100, 73.1</span></p>
+				<p><span data-sparkchart="true">1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 0; 0, 100, 73.1</span></p>
 			</div>
 		</div>
-		<p><strong>Implicit mode:</strong> Single value assumes range 0-100. The mean line is positioned horizontally based on where the mean falls in this range.</p>
+		<p><strong>Implicit mode:</strong> Single value assumes range 0-100. The mean line is positioned horizontally this range.</p>
 		<div class="demo">
 			<div class="input">
-				<p><code>&lt;span data-sparkchart="true"&gt;1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 32; 73.1&lt;/span&gt;</code></p>
+				<p><code>&lt;span data-sparkchart="true"&gt;1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 0; 73.1&lt;/span&gt;</code></p>
 			</div>
 			<div class="output">
-				<p><span data-sparkchart="true">1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 32; 73.1</span></p>
+				<p><span data-sparkchart="true">1.1, 2.6, 2.9, 3, 3.9, 7.9, 8.4, 14.1, 18.2, 14.1, 23.6; 0; 73.1</span></p>
 			</div>
 		</div>
 		<p>Mean indicators also work in tone mode:</p>
