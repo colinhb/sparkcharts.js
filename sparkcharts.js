@@ -151,6 +151,14 @@
 		};
 	}
 
+	function buildTooltipText(points, meanValue) {
+		let text = points.join(', ');
+		if (meanValue !== null) {
+			text += ` (Mean: ${meanValue})`;
+		}
+		return text;
+	}
+
 	function createTriangleMarker(x, y, width, height, pointDown, color) {
 		const path = document.createElementNS(NS, 'path');
 
@@ -178,7 +186,7 @@
 		return path;
 	}
 
-	function drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, chartHeight, markerHeight, width, barWidth, gap, color, isToneMode = false) {
+	function drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, chartHeight, markerHeight, width, barWidth, gap, color, tooltipText, isToneMode = false) {
 		if (meanValue === null || meanMinValue === null || meanMaxValue === null) return;
 
 		const valueRange = meanMaxValue - meanMinValue;
@@ -204,12 +212,15 @@
 			// Top marker (pointing down)
 			const topMarker = createTriangleMarker(markerX, 0, markerWidth, markerHeight, true, color);
 			const topTitle = document.createElementNS(NS, 'title');
-			topTitle.textContent = `Mean: ${meanValue}`;
+			topTitle.textContent = tooltipText;
 			topMarker.appendChild(topTitle);
 			svg.appendChild(topMarker);
 
 			// Bottom marker (pointing up)
 			const bottomMarker = createTriangleMarker(markerX, chartHeight - markerHeight, markerWidth, markerHeight, false, color);
+			const bottomTitle = document.createElementNS(NS, 'title');
+			bottomTitle.textContent = tooltipText;
+			bottomMarker.appendChild(bottomTitle);
 			svg.appendChild(bottomMarker);
 
 			// Vertical line connecting markers
@@ -229,7 +240,7 @@
 			// Triangle marker at top
 			const topMarker = createTriangleMarker(markerX, 0, markerWidth, markerHeight, true, color);
 			const title = document.createElementNS(NS, 'title');
-			title.textContent = `Mean: ${meanValue}`;
+			title.textContent = tooltipText;
 			topMarker.appendChild(title);
 			svg.appendChild(topMarker);
 
@@ -250,15 +261,18 @@
 	function draw(el, opts) {
 		const mode = el.getAttribute('data-sparkchart-mode') || 'bars';
 		const markerHeight = opts.meanValue !== null ? CONFIG.MEAN_MARKER_HEIGHT_EM * opts.fontSize : 0;
+		const tooltipText = buildTooltipText(opts.points, opts.meanValue);
 
 		let svg;
 		if (mode === 'tone') {
 			opts.height = (CONFIG.HEIGHT_EM * opts.fontSize * 2) + (markerHeight * 2);
 			opts.markerHeight = markerHeight;
+			opts.tooltipText = tooltipText;
 			svg = drawTone(opts);
 		} else {
 			opts.height = (CONFIG.HEIGHT_EM * opts.fontSize) + markerHeight;
 			opts.markerHeight = markerHeight;
+			opts.tooltipText = tooltipText;
 			svg = drawBars(opts);
 		}
 
@@ -266,7 +280,7 @@
 	}
 
 	function drawTone(opts) {
-		const { svg, points, scaleMax, height, width, barWidth, gap, color, meanValue, meanMinValue, meanMaxValue, markerHeight } = opts;
+		const { svg, points, scaleMax, height, width, barWidth, gap, color, meanValue, meanMinValue, meanMaxValue, markerHeight, tooltipText } = opts;
 
 		const padding = gap;
 		const paddedWidth = width + (2 * padding);
@@ -311,23 +325,27 @@
 			rectBelow.setAttribute('height', barHeight);
 			rectBelow.setAttribute('fill', color);
 
-			// Add title to both parts (or just one?)
-			const title = document.createElementNS(NS, 'title');
-			title.textContent = String(point);
-			rectAbove.appendChild(title);
+			// Add title to both parts
+			const titleAbove = document.createElementNS(NS, 'title');
+			titleAbove.textContent = tooltipText;
+			rectAbove.appendChild(titleAbove);
+
+			const titleBelow = document.createElementNS(NS, 'title');
+			titleBelow.textContent = tooltipText;
+			rectBelow.appendChild(titleBelow);
 
 			svg.appendChild(rectAbove);
 			svg.appendChild(rectBelow);
 		});
 
 		// Draw mean line AFTER bars (on top)
-		drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, height, markerHeight, paddedWidth, barWidth, gap, color, true);
+		drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, height, markerHeight, paddedWidth, barWidth, gap, color, tooltipText, true);
 
 		return svg;
 	}
 
 	function drawBars(opts) {
-		const { svg, points, scaleMax, height, width, barWidth, gap, color, meanValue, meanMinValue, meanMaxValue, markerHeight } = opts;
+		const { svg, points, scaleMax, height, width, barWidth, gap, color, meanValue, meanMinValue, meanMaxValue, markerHeight, tooltipText } = opts;
 
 		svg.setAttribute('width', width);
 		svg.setAttribute('height', height);
@@ -351,14 +369,14 @@
 			rect.setAttribute('fill', color);
 
 			const title = document.createElementNS(NS, 'title');
-			title.textContent = String(point);
+			title.textContent = tooltipText;
 			rect.appendChild(title);
 
 			svg.appendChild(rect);
 		});
 
 		// Draw mean line AFTER bars (on top)
-		drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, height, markerHeight, width, barWidth, gap, color, false);
+		drawMeanLine(svg, meanValue, meanMinValue, meanMaxValue, height, markerHeight, width, barWidth, gap, color, tooltipText, false);
 
 		return svg;
 	}
