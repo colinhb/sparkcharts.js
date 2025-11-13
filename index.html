@@ -89,6 +89,23 @@
 		</ol>
 	</section>
 
+	<h2>Fallback Warnings</h2>
+	<section class="example">
+		<p>Provide fallback warnings for users whose browsers fail to load or execute the script using <code>data-sparkchart-warn="true"</code>:</p>
+		<div class="demo">
+			<div class="input">
+				<pre><code>&lt;div data-sparkchart-warn="true"&gt;&lt;p&gt;&lt;mark&gt;If you can read this, then the visualizations in this document may not be rendering. If you are having problems, please try on another device.&lt;/mark&gt;&lt;/p&gt;&lt;/div&gt;</code></pre>
+			</div>
+			<div class="output">
+				<div data-sparkchart-warn="true">
+					<p><mark>If you can read this, then the visualizations in this document may not be rendering. If you are having problems, please enable javascript or try on another device.</mark></p>
+				</div>
+			</div>
+		</div>
+		<p>When the script loads successfully, all elements with <code>data-sparkchart-warn="true"</code> attributes are automatically removed. If the script fails to load, the warning remains visible.</p>
+		<p>Alternatively, you could use `<noscript>` elements, but that wouldn't handle the case where javascript is enabled, but for some other reason the script is not loading or running.</p>
+	</section>
+
 	<h2>Typography-Responsive Sizing</h2>
 	<section class="example">
 		<!-- prime numbers -->
