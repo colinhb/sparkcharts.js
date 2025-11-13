@@ -38,6 +38,8 @@ jobs:
           mkdir public
           cp index.html public/index.html
           cp sparkcharts.js public/sparkcharts.js
+          cp styles.css public/styles.css
+          cp normalize.css public/normalize.css
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
