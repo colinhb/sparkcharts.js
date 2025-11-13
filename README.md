@@ -2,7 +2,7 @@
 
 Lightweight bar chart sparklines using inline SVG. All sizing and colors are automatic based on typography / styling.
 
-See [index.html](https://colinhb.github.io/sparkcharts.js/) (on GitHub Pages) for examples.
+See [index.html](https://colinhb.github.io/sparkcharts.js/) (live on GitHub Pages) for examples.
 
 ## Usage
 
@@ -26,8 +26,9 @@ See [index.html](https://colinhb.github.io/sparkcharts.js/) (on GitHub Pages) fo
 ## Features
 
 - **Typography-responsive**: Charts automatically scale with font-size
-- **CSS colors**: Inherits color from CSS `color` property
-- **Fixed scale**: Optional max value, supplied after a `;`: `<span data-sparkchart="true">1, 2, 3; 10</span>`
+- **Inherited colors**: Inherits color from CSS `color` property
+- **Fixed scale**: Optional fixed scale (chart value height), supplied as a second `;` separated field: `<span data-sparkchart="true">1, 2, 3; 10</span>`
+- **Mean indicator**: Optional mean indicator, supplied as a third `;` separated field (see live examples)
 - **Accessible**: Includes ARIA labels and tooltips
 - **Fallback warnings**: Optional fallback warning for environments where the script doesn't load
 
