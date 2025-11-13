@@ -1,0 +1,12 @@
+// project config file for HTML tidy
+// see also: https://api.html-tidy.org/tidy/quickref_5.8.0.html
+
+// basic pretty-printing
+wrap: 0
+indent: auto
+indent-attributes: no
+vertical-space: yes
+indent-with-tabs: yes
+
+// want to keep empty elements for demo (empty sparkchart)
+drop-empty-elements: no
