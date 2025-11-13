@@ -52,3 +52,9 @@ Alternatively, you could use `<noscript>` elements, but that wouldn't handle the
 ## History
 
 This library was developed to support easy "distribution reporting" of public opinion data online. For example, see [this release](https://blog.athenainsights.org/nyc-mayoral-toplines-2025/).
+
+## Copyright and Licensing
+
+See the `COPYRIGHT` and `LICENSE` files, which cover the contents of this repository unless otherwise noted below.
+
+- The stylesheet `normalize.css`, used for the examples webpage, is from [csstools/normalize.css](https://github.com/csstools/normalize.css), and has been committed to the public domain (CC0-1.0 license).
