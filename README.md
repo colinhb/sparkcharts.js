@@ -36,9 +36,13 @@ See [index.html](https://colinhb.github.io/sparkcharts.js/) (on GitHub Pages) fo
 You can provide fallback content for users whose browsers fail to load or execute the script. Add `data-sparkchart-warn="true"` to any element containing a warning message:
 
 ```html
-<div data-sparkchart-warn="true">
-	<p><mark>If you can read this, then the visualizations in this document may not be rendering. If you are having problems, please enable javascript or try on another device.</mark></p>
-</div>
+<p data-sparkchart-warn="true">
+	<mark>If you can read this, then the 
+	visualizations in this document may not 
+	be rendering. If you are having problems, 
+	please enable javascript or try on another 
+	device.</mark>
+</p>
 ```
 
 When the script loads successfully, all elements with `data-sparkchart-warn="true"` are automatically removed from the page. If the script fails to load, the warning remains visible.
